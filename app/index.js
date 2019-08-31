@@ -5,11 +5,13 @@ import ReactDOM from 'react-dom'
 // Style Imports
 import './index.css'
 
+import Popular from './components/popular'
+
 class App extends React.Component {
     render() {
         return (
             <div className="container">
-                <h1>Github Popular Repositories</h1>
+                <Popular />
             </div>
         )
     }
