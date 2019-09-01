@@ -7,6 +7,22 @@ import ReactDOM from 'react-dom'
 
 export default class Popular extends React.Component {
     
+    constructor(props){
+        super(props)
+        
+        this.state = {
+            selected_language: 'All',
+
+        }
+        this.selected_language = this.updateSelectedLanguage.bind(this);
+    }
+
+    updateSelectedLanguage(selected_language) {
+        this.setState({
+            selected_language
+        })
+    }
+
     render(){
 
         const languages = ['All', 'Javascript', 'Python', 'Ruby', 'Java'];
@@ -16,7 +32,11 @@ export default class Popular extends React.Component {
                 <ul className="flex-center" >
                     {languages.map((language) => (
                         <li key={language}>
-                            <button className="nav-link" >
+                            <button 
+                            onClick={() => this.updateSelectedLanguage(language)}
+                            style={language === this.state.selected_language ? {backgroundColor: '#111', color: '#fff'} : null}
+                            className="nav-link" 
+                            >
                                 {language}
                             </button>
                         </li>
@@ -25,5 +45,5 @@ export default class Popular extends React.Component {
             </React.Fragment>
         )
     }
-    
+
 }
