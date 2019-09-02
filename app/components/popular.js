@@ -2,8 +2,27 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+function LanguagesNavigation ({ selected, onUpdateLanguage}) {
+    
+    const languages = ['All', 'Javascript', 'Python', 'Ruby', 'Java'];
 
+    return(
+        <ul className="flex-center" >
+            {languages.map((language) => (
+                <li key={language}>
+                    <button 
+                    style={language === selected ? {backgroundColor: '#111', color: '#fff'} : null}
+                    onClick={() => onUpdateLanguage(language)}
+                    className="nav-link" 
+                    >
+                        {language}
+                    </button>
+                </li>
+            ))}
+        </ul>
+    )
 
+} 
 
 export default class Popular extends React.Component {
     
@@ -14,36 +33,28 @@ export default class Popular extends React.Component {
             selected_language: 'All',
 
         }
-        this.selected_language = this.updateSelectedLanguage.bind(this);
+        this.updateLanguage = this.updateLanguage.bind(this);
     }
 
-    updateSelectedLanguage(selected_language) {
+    updateLanguage(selected_language) {
         this.setState({
             selected_language
         })
     }
 
     render(){
-
-        const languages = ['All', 'Javascript', 'Python', 'Ruby', 'Java'];
-
-        return(
+        
+        const {selected_language} = this.state;
+    
+        return (
             <React.Fragment>
-                <ul className="flex-center" >
-                    {languages.map((language) => (
-                        <li key={language}>
-                            <button 
-                            onClick={() => this.updateSelectedLanguage(language)}
-                            style={language === this.state.selected_language ? {backgroundColor: '#111', color: '#fff'} : null}
-                            className="nav-link" 
-                            >
-                                {language}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
+                <LanguagesNavigation
+                    selected={selected_language}
+                    onUpdateLanguage={this.updateLanguage}
+                />
             </React.Fragment>
         )
+
     }
 
 }
