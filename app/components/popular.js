@@ -1,7 +1,8 @@
 // Core Imports
 import React from 'react'
-import ReactDOM from 'react-dom'
+import PropTypes from 'prop-types'
 
+// Navig
 function LanguagesNavigation ({ selected, onUpdateLanguage}) {
     
     const languages = ['All', 'Javascript', 'Python', 'Ruby', 'Java'];
@@ -23,6 +24,11 @@ function LanguagesNavigation ({ selected, onUpdateLanguage}) {
     )
 
 } 
+
+LanguagesNavigation.propTypes = {
+    selected: PropTypes.string.isRequired,
+    onUpdateLanguage: PropTypes.func.isRequired
+}
 
 export default class Popular extends React.Component {
     
