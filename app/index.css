@@ -13,9 +13,6 @@ body {
     margin: 0 auto;
 }
 
-* {
-    font-family: 'Dosis', sans-serif;
-}
 
 ul.flex-center {
     display: flex;
@@ -35,6 +32,7 @@ button.nav-link {
     letter-spacing: 2px;
     background-color: #fff;
     font-weight: bold;
+    font-family: 'Dosis', sans-serif;
 }
 
 button.nav-link:hover {
