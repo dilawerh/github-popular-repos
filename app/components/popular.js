@@ -29,6 +29,40 @@ LanguagesNavigation.propTypes = {
     onUpdateLanguage: PropTypes.func.isRequired
 }
 
+function ReposGrid({repos}) {
+    return(
+        <ul className="repo_grid" >
+            {repos.map((repo, index)=>{
+                const {name, owner, html_url, stargazers_count, forks, open_issues} = repo
+                const {login, avatar_url} = owner
+            
+            return(
+                <li key={index} className="single_repo" >
+                    
+                    <div className="single_repo--container">
+                        
+                        <img src={avatar_url} className="single_repo--image"></img>
+                        
+                        <div className="single_repo--repoInfo">
+                            <h4 className="single_repo--heading">#{index+1} {name} </h4>
+                            <div className="single_repo--link"> 
+                                By <a target="_blank" href={login}>{login}</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </li>
+            )
+            })}
+        </ul>
+    )
+}
+
+ReposGrid.propTypes = {
+    repos: PropTypes.array.isRequired
+}
+
 export default class Popular extends React.Component {
     
     constructor(props){
@@ -37,7 +71,7 @@ export default class Popular extends React.Component {
         
         this.state = ({
             selected_language: 'All',
-            repos: {},
+            repos: [],
             error: null
         })
 
@@ -90,16 +124,10 @@ export default class Popular extends React.Component {
 
         return (
             <React.Fragment>
-                
-                <LanguagesNavigation
-                    selected={selected_language}
-                    onUpdateLanguage={this.updateLanguage}
-                />
-
+                <LanguagesNavigation selected={selected_language} onUpdateLanguage={this.updateLanguage}/>
                 {this.isLoading() && <p>Loading...</p>}
                 {error && <p>{error}</p>}
-                {repos[selected_language] && <pre>{JSON.stringify(repos[selected_language], null, 2)}</pre>}
-
+                {repos[selected_language] && <ReposGrid repos={repos[selected_language]} />}
             </React.Fragment>
         )
     }

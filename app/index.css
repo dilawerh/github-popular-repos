@@ -2,6 +2,7 @@ body {
     background-color: #fefefe;
     padding: 0;
     margin: 0;
+    font-family: 'Dosis', sans-serif;
 }
 
 * {
@@ -41,4 +42,49 @@ button.nav-link:hover {
     cursor: pointer;
     transition: .1s ease-in;
     color: #fff;
+}
+
+.repo_grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    justify-content: space-between;
+}
+
+.single_repo {
+    border: 3px solid #222;
+    margin: 1% 1%;
+    flex: 1 0 41%;
+}
+
+.single_repo--heading {
+    margin: 5px 10px;
+    letter-spacing: .2px;
+    font-weight: 100;
+    font-size: 1.2em;
+}
+.single_repo--container {
+    display: flex;
+    flex-direction: row;
+    padding: 15px;
+}
+
+.single_repo--image {
+    width: 100px;
+    height: 100px;
+}
+
+.single_repo--link {
+    margin: 0px 10px;
+}
+.single_repo--link a{
+    text-decoration: none;
+    font-weight: 100;
+    color: #9240d8;
+}
+
+.single_repo--repoInfo {
+    margin-left: 15px;
 }
