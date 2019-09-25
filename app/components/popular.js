@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {fetchPopularRepos} from '../utils/api'
+import {FaUser, FaStar, FaCodeBranch, FaExclamationTriangle} from 'react-icons/fa'
 
 function LanguagesNavigation ({ selected, onUpdateLanguage}) {
     
@@ -46,7 +47,21 @@ function ReposGrid({repos}) {
                         <div className="single_repo--repoInfo">
                             <h4 className="single_repo--heading">#{index+1} {name} </h4>
                             <div className="single_repo--link"> 
-                                By <a target="_blank" href={login}>{login}</a>
+                                By <a target="_blank" href={`https://github.com/${login}`}>{login}</a>
+                            </div>
+                            <div className="single_repo--stats">
+                                <ul>
+                                    <li>
+                                        <FaStar color='#7c797f' size={14} />
+                                        {stargazers_count.toLocaleString()} stars
+                                    </li>
+
+                                    <li>
+                                        <FaCodeBranch color='#7c797f' size={14} />
+                                        {forks.toLocaleString()}  forks
+                                    </li>
+
+                                </ul>
                             </div>
                         </div>
                         

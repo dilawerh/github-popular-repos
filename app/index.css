@@ -87,4 +87,29 @@ button.nav-link:hover {
 
 .single_repo--repoInfo {
     margin-left: 15px;
+    align-self: flex-end;
+}
+
+.single_repo--stats{
+    color: #7c797f;
+}
+
+.single_repo--stats > ul {
+    list-style: none;
+    margin: 0;
+    padding: 8px 9px;
+}
+
+.single_repo--stats > ul > li {
+    display: inline;
+}
+
+.single_repo--stats > ul > li:first-child:after{
+    content: '·';
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+.single_repo--stats>ul>li>svg {
+    margin-right: 7px;
 }
