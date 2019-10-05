@@ -1,6 +1,6 @@
 # Github Popular Repo's
 
-🚀A small ReactJS which filters the top 30 repositories on GitHub based on different programming languages.
+🚀A small ReactJS web app which filters the top 30 repositories on GitHub based on different programming languages.
 
 [![GithubPopularRepos](https://i.imgur.com/86uZjzR.png?raw=true 'GithubPopularRepos')]()
 
